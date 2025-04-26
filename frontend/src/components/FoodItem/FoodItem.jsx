@@ -11,7 +11,8 @@ const FoodItem = ({ image, name, price, desc , id }) => {
     return (
         <div className='food-item'>
             <div className='food-item-img-container'>
-                <img className='food-item-image' src={url+"/images/"+image} alt="" />
+                {/* <img className='food-item-image' src={url+"/images/"+image} alt="" /> */}
+                <img className='food-item-image' src={image} alt="" />
                 {!cartItems[id]
                 ?<img className='add' onClick={() => addToCart(id)} src={assets.add_icon_white} alt="" />
                 :<div className="food-item-counter">
@@ -25,7 +26,7 @@ const FoodItem = ({ image, name, price, desc , id }) => {
                 <div className="food-item-name-rating">
                     <p>{name}</p> 
                 </div>
-                <p className="food-item-desc">{desc.length > 85 ? desc.substring(0,85) + "..." : desc}</p>
+                <p className="food-item-desc">{desc.length > 60 ? desc.substring(0,60) + "..." : desc}</p>
                 {/* shorten the description to two lines so that card size do not become odd */}
                 <p className="food-item-price">{currency}{price} <span><img src={assets.rating_starts} alt="" /></span></p>
             </div>
